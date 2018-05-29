@@ -48,7 +48,7 @@ def initialize_exp():
 
     msg = client.recv(1028).decode()
     if msg == 'cl':
-        closed_loop(10, 5)
+        closed_loop(10, 5) # Change your frequency and duty cycle here
     elif msg == 'ol':
         hi = client.recv(1028).decode()
         lo = client.recv(1028).decode()
@@ -165,6 +165,7 @@ print("make sure you change the host IP appropriately - remove lock")
 lock
 
 host = get_ip_address()
+print('host ip: ' + host)
 port = 5010
 
 try:
