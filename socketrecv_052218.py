@@ -146,6 +146,7 @@ def start_cycle():
 
     while True:
         msg = client.recv(1028).decode()
+        print(len(msg))
         if msg == 'START':
             print('START')
             initialize_exp()
