@@ -145,7 +145,7 @@ def start_cycle():
     global client
 
     while True:
-        msg = client.recv(1028).decode()
+        msg = client.recv(1028)
         print(len(msg))
         if msg == 'START':
             print('START')
