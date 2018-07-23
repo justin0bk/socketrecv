@@ -1,6 +1,7 @@
 import sys
 import socket
 import RPi.GPIO as GPIO
+from threading import Thread
 import time
 
 def get_ip_address():
@@ -162,7 +163,6 @@ GPIO.setup(desig_onoff, GPIO.OUT, initial = 0)
 
 server  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("make sure you change the host IP appropriately - remove lock")
-lock
 
 host = get_ip_address()
 print('host ip: ' + host)
@@ -178,7 +178,9 @@ server.listen(5)
 client, address = server.accept()
 print('Client found:', address)
 
-start_cycle()
+recv_thread = Thread(target=start_cycle)
+recv_thread.start()
+
 
 
 
