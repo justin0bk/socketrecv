@@ -49,7 +49,9 @@ def initialize_exp():
 
     msg = client.recv(1028).decode()
     if msg == 'cl':
-        closed_loop(10, 5) # Change your frequency and duty cycle here
+        hi = client.recv(1028).decode()
+        lo = client.recv(1028).decode()
+        closed_loop(hi, lo) # Change your frequency and duty cycle here
     elif msg == 'ol':
         hi = client.recv(1028).decode()
         lo = client.recv(1028).decode()
